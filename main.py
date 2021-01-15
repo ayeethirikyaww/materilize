@@ -1,5 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
+import sys
+import logging
 app = Flask(__name__)
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 @app.route("/home")
 
